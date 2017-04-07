@@ -41,3 +41,18 @@ Windows:
 
 
 安装完成后，打开或重启Spyder，在偏好设置中，选择简体中文，重启即可。
+
+
+
+如果出现如下错误提示：
+
+'''
+/home/lzh/anaconda2/lib/python2.7/site-packages/spyder/config/base.py
+Traceback (most recent call last):
+  File "main.py", line 72, in <module>
+    with open(configpath, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/home/lzh/anaconda2/lib/python2.7/site-packages/spyder/config/base.py'
+
+'''
+
+说明spyder版本不是3.x以上版本，需要先升级。
