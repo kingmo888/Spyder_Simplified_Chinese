@@ -89,6 +89,6 @@ os.rename(configpath,sitepath + r'{0}spyder{1}config{2}base_bak.py'.format(flag,
 shutil.move(newpath,configpath) 
 
 try:
-    raw_input('中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情想用~\n\n 按ENTER键退出。')
+    raw_input('中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情享用~\n\n 按ENTER键退出。')
 except:
-    input('中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情想用~\n\n 按ENTER键退出。')
+    input('中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情享用~\n\n 按ENTER键退出。')
