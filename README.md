@@ -28,9 +28,13 @@ Spyder在3.x版本之后开始支持自定义语言包。
 如果python环境首选路径是anaconda的话，在main.py所在路径打开命令行或者终端，输入一下命令即可：
 > python main.py
 
+
 Ubuntu：
+
 ![screenshot](./img/spyder001.png)
+
 Windows:
+
 ![screenshot](./img/spyder002.png)
 
 
