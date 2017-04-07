@@ -62,7 +62,10 @@ if thissys == 'Windows':
             if "LANGUAGE_CODES = {'en': u'English'," in line:
                 #print(line)
                 islanguage = 1
-                mystr = "                  zh_CN': u'简体中文',"
+                mystr = "                  'zh_CN': u'简体中文',\n"
+                newf.writelines(mystr)
+
+
 
 else:
     newf = open(newpath, 'w')
@@ -75,7 +78,8 @@ else:
             if "LANGUAGE_CODES = {'en': u'English'," in line:
                 #print(line)
                 islanguage = 1
-                mystr = "                  zh_CN': u'简体中文',"
+                mystr = "                  'zh_CN': u'简体中文',\n"
+                newf.writelines(mystr)
     
     
     
