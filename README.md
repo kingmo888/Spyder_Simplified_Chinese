@@ -12,6 +12,8 @@ Spyder在3.x版本之后开始支持自定义语言包。
 ============================================
 该汉化包已pull到Spyder官方，目前等待合并。合并后更新Spyder到最新版即可使用中文语言了，在此之前如果想尝试的话，可以使用一键安装脚本来安装。
 
+## Q&A:
+[1、Linux下，提示base.py文件不存在的问题（含解决办法）](https://github.com/kingmo888/Spyder_Simplified_Chinese/issues/2)
 
 ### 必备条件：
 >1、已安装Spyder
