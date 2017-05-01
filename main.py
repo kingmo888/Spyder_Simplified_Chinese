@@ -34,8 +34,9 @@ def checkpath(path):
 # search site-packages folder
 sitepath="."
 for x in sys.path:
-    ix=x.find('site-packages')
-    if( ix>=0 and x[ix:]=='site-packages'):
+    ix1 = x.find('site-packages')
+    ix2 = x.find('dist-packages')
+    if( (ix1>=0 and x[ix1:]=='site-packages') or (ix2>=0 and x[ix2:]=='dist-packages') ):
       sitepath=x
       break
   
