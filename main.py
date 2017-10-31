@@ -12,7 +12,7 @@ import platform
 
 thissys = platform.system()
 flag = r'\\' if thissys == 'Windows' else '/'
-
+pyver = sys.version_info[0] + sys.version_info[1]/10
 
 def checkpath(path):
     try:
@@ -53,18 +53,26 @@ print(configpath)
     
 newpath = sitepath + '{0}base.py'.format(flag)
 if thissys == 'Windows':
-    newf = open(newpath, 'w', encoding='utf-8')
-    with open(configpath, 'r',encoding='utf-8') as f:
-        lines = f.readlines()
-        islanguage = 0
-        for i in range(len(lines)):
-            line = lines[i]
-            newf.writelines(line)
-            if "LANGUAGE_CODES = {'en': u'English'," in line:
-                #print(line)
-                islanguage = 1
-                mystr = "                  'zh_CN': u'简体中文',\n"
-                newf.writelines(mystr)
+    if pyver > 2.7:
+        newf = open(newpath, 'w', encoding='utf-8')
+        with open(configpath, 'r',encoding='utf-8') as f:
+            lines = f.readlines()
+    else:
+        import io
+        newf = io.open(newpath, 'w', encoding='utf-8')
+        with io.open(configpath, 'r',encoding='utf-8') as f:
+            lines = f.readlines()
+
+    islanguage = 0
+    for i in range(len(lines)):
+        line = lines[i]
+        newf.writelines(line)
+        if "LANGUAGE_CODES = {'en': u'English'," in line:
+            #print(line)
+            islanguage = 1
+            mystr = "                  'zh_CN': u'简体中文',\n" if pyver >2.7 else u"                  'zh_CN': u'简体中文',\n"
+            
+            newf.writelines(mystr)
 
 
 
@@ -73,14 +81,14 @@ else:
     with open(configpath, 'r') as f:
         lines = f.readlines()
         islanguage = 0
-        for i in range(len(lines)):
-            line = lines[i]
-            newf.writelines(line)
-            if "LANGUAGE_CODES = {'en': u'English'," in line:
-                #print(line)
-                islanguage = 1
-                mystr = "                  'zh_CN': u'简体中文',\n"
-                newf.writelines(mystr)
+    for i in range(len(lines)):
+        line = lines[i]
+        newf.writelines(line)
+        if "LANGUAGE_CODES = {'en': u'English'," in line:
+            #print(line)
+            islanguage = 1
+            mystr = "                  'zh_CN': u'简体中文',\n"
+            newf.writelines(mystr)
     
     
     
@@ -94,6 +102,6 @@ os.rename(configpath,sitepath + r'{0}spyder{1}config{2}base_bak.py'.format(flag,
 shutil.move(newpath,configpath) 
 
 try:
-    raw_input('中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情享用~\n\n 按ENTER键退出。')
+    raw_input(u'中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情享用~\n\n 按ENTER键退出。'.encode('gbk'))
 except:
     input('中文语言包安装完毕，请重启后配置语言选项即可。\n请尽情享用~\n\n 按ENTER键退出。')
