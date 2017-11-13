@@ -1,6 +1,7 @@
 2017-11-13:
 CMD下执行python main.py出现以下错误时，
 >PermissionError:[WinError 5]拒绝访问。：
+
 是因为python环境在系统盘。此时cmd需要管理权限，右击cmd以管理身份运行，再次执行Python main.py即可。
 
 2017-10-31:
