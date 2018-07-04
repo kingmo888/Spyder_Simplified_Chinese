@@ -144,13 +144,5 @@ except:
         
 sitepath = search_packages_path(pyflag)
 
-print(sitepath)
-try:
-    pyflag = raw_input(u'路径中是否包含你的python版本路径？若包含，直接回撤跳过，若不包含，可以'.encode('gbk'))
-    
-except:
-    pyflag = input(u'请选择自己你的python类别:\n     1.Anaconda \n     2.Python原版\n     3.其他\n您的选择（数字）：')
-
-
 creat_language_folder(sitepath)
 chinesize(sitepath)
